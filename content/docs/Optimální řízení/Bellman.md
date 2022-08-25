@@ -1,6 +1,6 @@
 ---
 title: Bellmanův princip optimality
-draft: true
+draft: false
 ---
 
 # Bellmanův princip optimality
@@ -119,4 +119,4 @@ L(\bm{x},\bm{u},τ) + \frac{∂J(\bm{x}_t,t)}{∂\bm{x}}\bm{f}(\bm{x},\bm{u},τ)
 \right)
 \right|_{τ=t}
 {{< /katex >}}
-z které lze přímo odvodit [LQR]({{< ref "LQR.md" >}}) a s úpravou Pontrjaginův princip minima.
+z které lze přímo odvodit [LQR]({{< ref "LQR.md" >}}) a s úpravou, Pontrjaginův princip minima.
