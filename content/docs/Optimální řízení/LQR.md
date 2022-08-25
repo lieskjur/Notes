@@ -62,7 +62,7 @@ přičemž z podmínky lokálního extrému
 =
 0
 {{< /katex >}}
-lze vyjádřit optimální řízení {{< katex >}} \bm{u}^*(\bm{x}_t) {{< /katex >}}
+lze vyjádřit optimální řízení {{< katex >}} \bm{u}^*(\bm{x}_t,τ) {{< /katex >}}
 {{< katex display >}}
 \bm{u}^* = - \bm{R}^{-1} \bm{B}^T \bm{S} \, \bm{x} 
 {{< /katex >}}
