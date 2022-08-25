@@ -41,7 +41,7 @@ Jeho syntéza je založena na nalezní řešení *Bellmanovy diferenciální rov
 {{< /katex >}}
 s *Bellmanovou funkcí* [^1] ve tvaru
 {{< katex display >}}
-J^*(\bm{x}_t,t) = \bm{x}^T \bm{S} \, \bm{x} \;,\quad \bm{S} = \bm{S}^T
+J^*(\bm{x}_t,t) = \bm{x}(t)^T \bm{S} \, \bm{x}(t) \;,\quad \bm{S} = \bm{S}^T
 {{< /katex >}}
 
 ---
