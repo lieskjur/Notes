@@ -5,81 +5,81 @@ draft: false
 
 # Bellmanův princip optimality
 
-Pro systému se stavovou zpětnou vazbou ve tvaru
+Pro dynamický systém se stavovou zpětnou vazbou ve tvaru
 {{< katex display >}}
-\frac{d\bm{x}}{dτ} = \bm{f}(\bm{x},\bm{u},τ)
+\dot{\bm{x}} = \bm{f}(\bm{x},\bm{u},τ) \;,\quad \bm{u} = \bm{u}(\bm{x})
 {{< /katex >}}
-kde {{< katex >}} \bm{x} = \bm{x}(τ) \,,\; \bm{u} = \bm{u}(\bm{x}(τ)) {{< /katex >}} <!-- dále jen {{< katex >}} \bm{\dot{x}} = \bm{f}(\bm{x},\bm{u},τ) {{< /katex >}} -->
-můžeme definovat pro trajektorii ze stavu {{< katex >}} \bm{x}(t_0) = \bm{x}_0 {{< /katex >}} do stavu {{< katex >}} \bm{x}(t_1) {{< /katex >}} kritérium optimality
+kde {{< katex >}} \bm{x} = \bm{x}(τ) {{< /katex >}}, můžeme definovat pro trajektorii ze stavu {{< katex >}} \bm{x}(t) {{< /katex >}} do stavu {{< katex >}} \bm{x}(T) {{< /katex >}} kritérium optimality
 {{< katex display >}}
-J(\bm{x}_0,t_0) = ∫_{t_0}^{t_1} L(\bm{x},\bm{u},τ)\,dτ
+J(t) = ∫_{t}^{T} L(\bm{x},\bm{u},τ)\,dτ
 {{< /katex >}}
-Pro libovolný stav {{< katex >}} \bm{x}(t)=\bm{x}_t {{< /katex >}} existuje optimální řízení {{< katex >}} \bm{u}^* = \bm{u}^*(\bm{x}_t,τ) {{< /katex >}} do koncového stavu {{< katex >}} \bm{x}(t_1) {{< /katex >}}
+Pro libovolný stav {{< katex >}} \bm{x}(\tau) {{< /katex >}} pak existuje optimální řízení {{< katex >}} \bm{u}^*(τ) {{< /katex >}} pro dosažení žádaného stavu v čase {{< katex >}} T {{< /katex >}}
 {{< katex display >}}
-\bm{u}^* = \argmin_{\bm{u}} ∫_{t}^{t_1} L(\bm{x},\bm{u},τ)\,dτ
+\bm{u}^* = \argmin_{\bm{u}} ∫_{t}^{T} L(\bm{x},\bm{u},τ)\,dτ
 {{< /katex >}}
-kde *Bellmanovou funkcí* budeme nazýváme kritérium optimality ze stavu {{< katex >}} \bm{x}(t)=\bm{x}_t {{< /katex >}} do koncového stavu {{< katex >}} \bm{x}(t_1) {{< /katex >}}, při optimálním řízení
+kde *Bellmanovou funkcí* budeme nazýváme kritérium optimality při optimálním řízení
 {{< katex display >}}
-J^*(\bm{x}_t,t) = \min_{\bm{u}} ∫_{t}^{t_1} L(\bm{x},\bm{u},τ)\,dτ
+J^*(t) = \min_{\bm{u}} ∫_{t}^{T} L(\bm{x},\bm{u},τ)\,dτ
 {{< /katex >}}
 
----
+## Bellmanova rovnice
 
-Pokud hledáme optimální řízení v bodě {{< katex >}} \bm{x}(t) = \bm{x}_t {{< /katex >}} můžeme rozdělit celou trajektorii na tři úseky:
+Pokud hledáme optimální řízení ve stavu {{< katex >}} \bm{x}(t) {{< /katex >}}, můžeme rozdělit celou trajektorii na dva úseky:
 
-1. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t_0,t) {{< /katex >}} který byl už absolvován
-2. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t,t+Δt) {{< /katex >}} s kritériem optimality {{< katex >}} \int_t^{t+Δt} L(\bm{x},\bm{u},τ)\,dτ {{< /katex >}}
-3. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t+Δt,t_1⟩ {{< /katex >}} s kritérium optimality {{< katex >}} J(\bm{x}_{t+Δt},t+Δt) {{< /katex >}}
+1. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t,t+Δt) {{< /katex >}} s kritériem optimality {{< katex >}} \int_t^{t+Δt} L(\bm{x},\bm{u},τ)\,dτ {{< /katex >}}
+2. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t+Δt,T⟩ {{< /katex >}} s kritérium optimality {{< katex >}} J(t+Δt) {{< /katex >}}
 
 ![trajektorie](/Trajektorie.png)
 
 S definovanými úseky můžeme Bellmanovu funkci rozepsat do tvaru tzv. *Bellmanovy rovnice*
 {{< katex display >}}
-J^*(\bm{x}_t,t) = \min_{\bm{u}} \left( \int_t^{t+Δt} L(\bm{x},\bm{u},τ)\,dτ + J(\bm{x}_{t+Δt},t+Δt) \right)
+J^*(t) = \min_{\bm{u}} \left( \int_t^{t+Δt} L(\bm{x},\bm{u},τ)\,dτ + J(t+Δt) \right)
 {{< /katex >}}
-kde <!-- {{< katex >}} \bm{x}_{t+Δt} = \bm{x}(t+Δt) {{< /katex >}} a -->
+
+## Bellmanova diferenciání rovnice
+
+člen {{< katex >}} J(t+Δt) {{< /katex >}} můžeme rozepsat jako
 {{< katex display >}}
-J(\bm{x}_{t+Δt},t+Δt)
+J(t+Δt)
 =
-J(\bm{x}_t,t)
+J(t)
 +
-∫_{t}^{t+Δt} \frac{dJ(\bm{x}_t,t)}{dτ} dτ
+∫_{t}^{t+Δt} \frac{dJ(t)}{dτ} dτ
 {{< /katex >}}
-Dosazením pak získáme
+kdy osazením získáme
 {{< katex display >}}
-J^*(\bm{x}_t,t)
+J^*(t)
 =
 \min_{\bm{u}} \left(
 	∫_t^{t+Δt} L(\bm{x},\bm{u},τ)\,dτ
 	+
-	J(\bm{x}_t,t)
+	J(t)
 	+
-	∫_{t}^{t+Δt} \frac{dJ(\bm{x}_t,t)}{dτ} dτ
+	∫_{t}^{t+Δt} \frac{dJ(t)}{dτ} dτ
 \right)
 {{< /katex >}}
-
----
 Jelikož platí
 {{< katex display >}}
-J^*(\bm{x}_t,t) = \min_{\bm{u}} \left( J(\bm{x}_t,t) \right)
+J^*(t) = \min_{\bm{u}} \left( J(t) \right)
 {{< /katex >}}
-člen {{< katex >}} J(\bm{x}_t,t) {{< /katex >}} můžeme vykrátit s levou stranou
+člen {{< katex >}} J(t) {{< /katex >}} můžeme vykrátit s levou stranou
 {{< katex display >}}
 0
 =
 \min_{\bm{u}} \left(
-	∫_t^{t+Δt} L(\bm{x},\bm{u},τ)
-	+
-    \frac{dJ(\bm{x}_t,t)}{dτ} \ dτ
+	∫_t^{t+Δt}
+	L(\bm{x},\bm{u},τ) +
+    \frac{dJ(t)}{dτ}
+    \ dτ
 \right)
 {{< /katex >}}
 a provést úpravu
 {{< katex display >}}
-\frac{dJ(\bm{x}_t,t)}{dτ}
+\frac{dJ(t)}{dτ}
 =
-\frac{∂J(\bm{x}_t,t)}{∂\bm{x}(τ)} \bm{f}(\bm{x},\bm{u},τ)
+\frac{∂J(t)}{∂\bm{x}(τ)} \bm{f}(\bm{x},\bm{u},τ)
 +
-\frac{∂J(\bm{x}_t,t)}{∂τ}
+\frac{∂J(t)}{∂τ}
 {{< /katex >}}
 Výsledkem jejího dosazení je rovnice
 {{< katex display >}}
@@ -87,36 +87,27 @@ Výsledkem jejího dosazení je rovnice
 =
 \min_{\bm{u}} \left(
 ∫_t^{t+Δt}
-L(\bm{x},\bm{u},τ) + \frac{∂J(\bm{x}_t,t)}{∂\bm{x}}\bm{f}(\bm{x},\bm{u},τ) + \frac{∂J(\bm{x}_t,t)}{∂τ}
+L(\bm{x},\bm{u},τ) + \frac{∂J(t)}{∂\bm{x}}\bm{f}(\bm{x},\bm{u},τ) + \frac{∂J(t)}{∂τ}
 \ dτ
 \right)
 {{< /katex >}}
 
 ---
-Pokud pro {{< katex >}} Δt→0 {{< /katex >}} approximujeme integrál pomocí Reimannova součtu
+
+Pokud pro {{< katex >}} Δt→0 {{< /katex >}}, můžeme aproximovat integrál pomocí Reimannova součtu, přičemž výslednou rovnici lze upravit do tvaru tzv. *Bellmanovy diferenciální rovnice*
 {{< katex display >}}
-0
+%\left.
+-\frac{∂J^*(t)}{∂τ}
+%\right|_{τ=t}
 =
-\left.
-\min_{\bm{u}} \left(
-\left(
-L(\bm{x},\bm{u},τ) + \frac{∂J(\bm{x}_t,t)}{∂\bm{x}}\bm{f}(\bm{x},\bm{u},τ) + \frac{∂J(\bm{x}_t,t)}{∂τ}
-\right)
-Δt
-\right)
-\right|_{τ=t}
-{{< /katex >}}
-člen {{< katex >}} Δt {{< /katex >}} lze vykrátit rovnici upravit do tvaru tzv. *Bellmanovy diferenciální rovnice*
-{{< katex display >}}
-\left. -\frac{∂J^*(\bm{x}_t,t)}{∂τ} \right|_{τ=t}
-=
-\left.
+%\left.
 \min_{\bm{u}} \left(
 	L(\bm{x},\bm{u},τ)
 	+
-	\frac{∂J(\bm{x}_t,t)}{∂\bm{x}}	
+	\frac{∂J(t)}{∂\bm{x}}	
 	\bm{f}(\bm{x},\bm{u},τ)
 \right)
-\right|_{τ=t}
+%\right|_{τ=t}
 {{< /katex >}}
-z které lze přímo odvodit [LQR]({{< ref "LQR.md" >}}) a s úpravou, Pontrjaginův princip minima.
+v čase {{< katex >}} τ = t {{< /katex >}}
+, ze které lze přímo odvodit [LQR]({{< ref "LQR.md" >}}) a s úpravou, Pontrjaginův princip minima.
