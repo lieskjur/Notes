@@ -3,3 +3,9 @@ languageCode: en-us
 title: Poznámky
 
 theme: hugo-book
+
+params:
+  # BookTheme : "auto" # light(default)/dark/auto
+  BookRepo: https://github.com/lieskjur/Notes
+  BookEditPath: edit/main/
+  BookDateFormat: "January 2, 2006"
