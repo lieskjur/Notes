@@ -94,7 +94,7 @@ L(\bm{x},\bm{u},τ) + \frac{∂J(t)}{∂\bm{x}}\bm{f}(\bm{x},\bm{u},τ) + \frac{
 
 ---
 
-Pokud pro {{< katex >}} Δt→0 {{< /katex >}}, můžeme aproximovat integrál pomocí Reimannova součtu, přičemž výslednou rovnici lze upravit do tvaru tzv. *Bellmanovy diferenciální rovnice*
+Pokud pro {{< katex >}} Δt→0 {{< /katex >}}, můžeme aproximovat integrál pomocí Reimannova součtu a výslednou rovnici upravit do tvaru tzv. *Bellmanovy diferenciální rovnice*
 {{< katex display >}}
 %\left.
 -\frac{∂J^*(t)}{∂τ}
@@ -109,5 +109,5 @@ Pokud pro {{< katex >}} Δt→0 {{< /katex >}}, můžeme aproximovat integrál p
 \right)
 %\right|_{τ=t}
 {{< /katex >}}
-v čase {{< katex >}} τ = t {{< /katex >}}
+vyjádřené v čase {{< katex >}} τ = t {{< /katex >}}
 , ze které lze přímo odvodit [LQR]({{< ref "LQR.md" >}}) a s úpravou, Pontrjaginův princip minima.
