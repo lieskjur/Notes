@@ -1,9 +1,18 @@
-baseURL: https://lieskjur.github.io/Notes
-languageCode: en-us
+baseURL: https://lieskjur.github.io/Notes/
 title: Poznámky
 
 theme: hugo-book
 # enableGitInfo: true
+
+languages:
+  cs:
+    languageName: Česky
+    contentDir: content.cs
+    weight: 2
+  en:
+    languageName: English
+    contentDir: content.en
+    weight: 1
 
 params:
   # BookTheme : "auto" # light(default)/dark/auto
