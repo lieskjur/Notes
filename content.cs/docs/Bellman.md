@@ -18,11 +18,11 @@ J_{t→T} = ∫_{t}^{T} L(\bm{x},\bm{u},τ)\,dτ
 
 Pro libovolný stav {{< katex >}} \bm{x}(\tau) {{< /katex >}} pak existuje optimální řízení {{< katex >}} \bm{u}^*(τ) {{< /katex >}} pro dosažení žádaného stavu v čase {{< katex >}} T {{< /katex >}}
 {{< katex display >}}
-\bm{u}^* = \argmin_{\bm{u}} ∫_{t}^{T} L\,dτ
+\bm{u}^* = \argmin_{\bm{u}} J_{t→T}
 {{< /katex >}}
 kde *Bellmanovou funkcí* budeme nazýváme kritérium optimality při optimálním řízení
 {{< katex display >}}
-J_{t→T}^* = \min_{\bm{u}} ∫_{t}^{T} L\,dτ
+J_{t→T}^* = \min_{\bm{u}} J_{t→T}
 {{< /katex >}}
 
 ## Bellmanova rovnice
@@ -30,7 +30,7 @@ J_{t→T}^* = \min_{\bm{u}} ∫_{t}^{T} L\,dτ
 Pokud hledáme optimální řízení ve stavu {{< katex >}} \bm{x}(t) {{< /katex >}}, můžeme rozdělit celou trajektorii na dva úseky:
 
 1. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t,t+Δt) {{< /katex >}} s kritériem optimality {{< katex >}} \int_t^{t+Δt} L\,dτ {{< /katex >}}
-2. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t+Δt,T⟩ {{< /katex >}} s kritérium optimality {{< katex >}} J_{t+Δt→T} {{< /katex >}}
+2. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t+Δt,T⟩ {{< /katex >}} s kritériem optimality {{< katex >}} J_{t+Δt→T} {{< /katex >}}
 
 ![trajektorie](/Trajektorie.png)
 
@@ -41,7 +41,7 @@ J_{t→T}^* = \min_{\bm{u}} \left( \int_t^{t+Δt} L\,dτ + J_{t+Δt→T} \right)
 
 ## Bellmanova diferenciání rovnice
 
-člen {{< katex >}} J_{t+Δt→T} {{< /katex >}} můžeme rozepsat jako
+Člen {{< katex >}} J_{t+Δt→T} {{< /katex >}} můžeme rozepsat jako
 {{< katex display >}}
 J_{t+Δt→T}
 =
