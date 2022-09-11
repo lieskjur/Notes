@@ -24,7 +24,7 @@ H = -\frac{∂J}{∂τ}
 {{< /katex >}}
 a konjugovaného stavového vektoru
 {{< katex display >}}
-\bm{p}(τ) = \frac{∂J}{∂\bm{x}^T}
+\bm{p} = \frac{∂J}{∂\bm{x}^T}
 {{< /katex >}}
 
 ---
@@ -53,7 +53,7 @@ kde {{< katex >}} H^* {{< /katex >}} je Hamiltonián při dosazení optimálníh
 
 Samotný Hamiltonián lze vyjádřit jako obsah závroky
 {{< katex display >}}
-H = L + \bm{p}(τ)^T	\bm{f}
+H = L + \bm{p}^T	\bm{f}
 {{< /katex >}}
 a z něj odvodit stavové rovnice
 {{< katex display >}}
@@ -61,7 +61,7 @@ a z něj odvodit stavové rovnice
 \qquad 
 \dot{\bm{p}} = -\frac{∂H}{∂\bm{x}^T}
 {{< /katex >}}
-kde je využito že vektor {{< katex >}} \bm{p}(τ) {{< /katex >}} je stavový vektor (závislý pouze na {{< katex >}} τ {{< /katex >}}) a tedy platí
+kde je využito že vektor {{< katex >}} \bm{p} {{< /katex >}} je stavový vektor (závislý pouze na {{< katex >}} τ {{< /katex >}}) a tedy platí
 {{< katex display >}}
 \frac{d\bm{p}}{dτ} = \frac{∂\bm{p}}{∂τ} = \frac{∂^2J}{∂τ ∂\bm{x}^T} = -\frac{∂H}{∂\bm{x}^T}
 {{< /katex >}}
