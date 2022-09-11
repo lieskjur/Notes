@@ -34,10 +34,10 @@ Jeho syntéza je založena na nalezní řešení *Bellmanovy diferenciální rov
 =
 %\left.
 \min_{\bm{u}} \left(
-	L(\bm{x},\bm{u},τ)
+	L
 	+
 	\frac{∂J^*}{∂\bm{x}}	
-	\bm{f}(\bm{x},\bm{u},τ)
+	\bm{f}
 \right)
 %\right|_{τ=t}
 {{< /katex >}}

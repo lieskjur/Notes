@@ -11,10 +11,10 @@ Přestože Pontrjaginův princip minima byl odvozen nezávisle v sovětském sva
 =
 %\left.
 \min_{\bm{u}} \left(
-	L(\bm{x},\bm{u},τ)
+	L
 	+
 	\frac{∂J}{∂\bm{x}}	
-	\bm{f}(\bm{x},\bm{u},τ)
+	\bm{f}
 \right)
 %\right|_{τ=t}
 {{< /katex >}}
@@ -37,10 +37,10 @@ H^*
 =
 %\left.
 \min_{\bm{u}} \left(
-	L(\bm{x},\bm{u},τ)
+	L
 	+
 	\bm{p}^T	
-	\bm{f}(\bm{x},\bm{u},τ)
+	\bm{f}
 \right)
 %\right|_{τ=t}
 {{< /katex >}}
@@ -53,7 +53,7 @@ kde {{< katex >}} H^* {{< /katex >}} je Hamiltonián při dosazení optimálníh
 
 Samotný Hamiltonián lze vyjádřit jako obsah závroky
 {{< katex display >}}
-H = L(\bm{x},\bm{u},τ) + \bm{p}(τ)^T	\bm{f}(\bm{x},\bm{u},τ)
+H = L + \bm{p}(τ)^T	\bm{f}
 {{< /katex >}}
 a z něj odvodit stavové rovnice
 {{< katex display >}}
