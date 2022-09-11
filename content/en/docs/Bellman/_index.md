@@ -32,7 +32,7 @@ If we are searching for the optimal input at state {{< katex >}} \bm{x}(t) {{< /
 1. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t,t+Δt) {{< /katex >}} with an objective function {{< katex >}} \int_t^{t+Δt} L\,dτ {{< /katex >}}
 2. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t+Δt,T⟩ {{< /katex >}} with an objective function {{< katex >}} J_{t+Δt→T} {{< /katex >}}
 
-![trajektorie](/Trajektorie.png)
+![trajektory](trajectory.png)
 
 For the defined segments we may write the Bellman function in the form of the so-called *Bellman equation*
 {{< katex display >}}

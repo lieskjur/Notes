@@ -32,7 +32,7 @@ Pokud hledáme optimální řízení ve stavu {{< katex >}} \bm{x}(t) {{< /katex
 1. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t,t+Δt) {{< /katex >}} s kritériem optimality {{< katex >}} \int_t^{t+Δt} L\,dτ {{< /katex >}}
 2. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t+Δt,T⟩ {{< /katex >}} s kritériem optimality {{< katex >}} J_{t+Δt→T} {{< /katex >}}
 
-![trajektorie](/Trajektorie.png)
+![trajektorie](trajektorie.png)
 
 S definovanými úseky můžeme Bellmanovu funkci rozepsat do tvaru tzv. *Bellmanovy rovnice*
 {{< katex display >}}
