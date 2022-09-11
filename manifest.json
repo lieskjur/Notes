@@ -1,6 +1,6 @@
 {
-  "name": "Poznámky",
-  "short_name": "Poznámky",
+  "name": "Notes",
+  "short_name": "Notes",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
