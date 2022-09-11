@@ -1,0 +1,86 @@
+<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Bellman&rsquo;s principle of optimality # For a dynamic system with state feedback in the form \[\dot{\bm{x}} = \bm{f}(\bm{x},\bm{u},τ) \;,\quad \bm{u} = \bm{u}(\bm{x})\] where \( \bm{x}(τ) \) are the system&rsquo;s states and \( \bm{u}(\bm{x}) \) a function of state feedback inputs, we may define for the trajectory from state \( \bm{x}(t) \) to state \( \bm{x}(T) \) an objective function \[J_{t→T} = ∫_{t}^{T} L(\bm{x},\bm{u},τ)\,dτ\] For any state \( \bm{x}(\tau) \) there exists an optimal input \( \bm{u}^*(τ) \) for achieving the desired state at time \( T \) \[\bm{u}^* = \argmin_{\bm{u}} J_{t→T}\] where an objective function achieved with optimal inputs will be referred to as Bellman function \[J_{t→T}^* = \min_{\bm{u}} J_{t→T}\] Bellman&rsquo;s equation # If we are searching for the optimal input at state \( \bm{x}(t) \) , we may separate the entire trajectory into two segments:"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="Bellman's principle of optimality"><meta property="og:description" content="Bellman&rsquo;s principle of optimality # For a dynamic system with state feedback in the form \[\dot{\bm{x}} = \bm{f}(\bm{x},\bm{u},τ) \;,\quad \bm{u} = \bm{u}(\bm{x})\] where \( \bm{x}(τ) \) are the system&rsquo;s states and \( \bm{u}(\bm{x}) \) a function of state feedback inputs, we may define for the trajectory from state \( \bm{x}(t) \) to state \( \bm{x}(T) \) an objective function \[J_{t→T} = ∫_{t}^{T} L(\bm{x},\bm{u},τ)\,dτ\] For any state \( \bm{x}(\tau) \) there exists an optimal input \( \bm{u}^*(τ) \) for achieving the desired state at time \( T \) \[\bm{u}^* = \argmin_{\bm{u}} J_{t→T}\] where an objective function achieved with optimal inputs will be referred to as Bellman function \[J_{t→T}^* = \min_{\bm{u}} J_{t→T}\] Bellman&rsquo;s equation # If we are searching for the optimal input at state \( \bm{x}(t) \) , we may separate the entire trajectory into two segments:"><meta property="og:type" content="article"><meta property="og:url" content="https://lieskjur.github.io/Notes/docs/bellman/"><meta property="article:section" content="docs"><meta property="og:site_name" content="Notes"><title>Bellman's principle of optimality | Notes</title><link rel=manifest href=/Notes/manifest.json><link rel=icon href=/Notes/favicon.png type=image/x-icon><link rel=alternate hreflang=cs href=https://lieskjur.github.io/Notes/cs/docs/bellman/ title="Bellmanův princip optimality"><link rel=stylesheet href=/Notes/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin=anonymous><script defer src=/Notes/flexsearch.min.js></script>
+<script defer src=/Notes/en.search.min.0f16003eb146413a685678ce521210f11a3d9d900bd947627e141e91d1cdbe6d.js integrity="sha256-DxYAPrFGQTpoVnjOUhIQ8Ro9nZAL2UdifhQekdHNvm0=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/Notes/><span>Notes</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/Notes/svg/translate.svg class=book-icon alt=Languages>
+English</a></label><ul><li><a href=https://lieskjur.github.io/Notes/cs/docs/bellman/>Česky</a></li></ul></li></ul><ul><li><a href=/Notes/docs/bellman/ class=active>Bellman's principle of optimality</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/Notes/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Bellman's principle of optimality</strong>
+<label for=toc-control><img src=/Notes/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#bellmans-equation>Bellman&rsquo;s equation</a></li><li><a href=#bellmans-differential-equation>Bellman&rsquo;s differential equation</a></li></ul></nav></aside></header><article class=markdown><h1 id=bellmans-principle-of-optimality>Bellman&rsquo;s principle of optimality
+<a class=anchor href=#bellmans-principle-of-optimality>#</a></h1><p>For a dynamic system with state feedback in the form
+<link rel=stylesheet href=/Notes/katex/katex.css><script defer src=/Notes/katex/katex.min.js></script>
+<script defer src=/Notes/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>
+\[\dot{\bm{x}} = \bm{f}(\bm{x},\bm{u},τ) \;,\quad \bm{u} = \bm{u}(\bm{x})\]</span>
+where <span>\( \bm{x}(τ) \)</span>
+are the system&rsquo;s states and <span>\( \bm{u}(\bm{x}) \)</span>
+a function of state feedback inputs, we may define for the trajectory from state <span>\( \bm{x}(t) \)</span>
+to state <span>\( \bm{x}(T) \)</span>
+an objective function
+<span>\[J_{t→T} = ∫_{t}^{T} L(\bm{x},\bm{u},τ)\,dτ\]</span></p><hr><p>For any state <span>\( \bm{x}(\tau) \)</span>
+there exists an optimal input <span>\( \bm{u}^*(τ) \)</span>
+for achieving the desired state at time <span>\( T \)</span>
+<span>\[\bm{u}^* = \argmin_{\bm{u}} J_{t→T}\]</span>
+where an objective function achieved with optimal inputs will be referred to as <em>Bellman function</em>
+<span>\[J_{t→T}^* = \min_{\bm{u}} J_{t→T}\]</span></p><h2 id=bellmans-equation>Bellman&rsquo;s equation
+<a class=anchor href=#bellmans-equation>#</a></h2><p>If we are searching for the optimal input at state <span>\( \bm{x}(t) \)</span>
+, we may separate the entire trajectory into two segments:</p><ol><li><span>\( \bm{x}(τ) \,,\; τ ∈ ⟨t,t+Δt) \)</span>
+with an objective function <span>\( \int_t^{t+Δt} L\,dτ \)</span></li><li><span>\( \bm{x}(τ) \,,\; τ ∈ ⟨t+Δt,T⟩ \)</span>
+with an objective function <span>\( J_{t+Δt→T} \)</span></li></ol><p><img src=/Trajektorie.png alt=trajektorie></p><p>For the defined segments we may write the Bellman function in the form of the so-called <em>Bellman equation</em>
+<span>\[J_{t→T}^* = \min_{\bm{u}} \left( \int_t^{t+Δt} L\,dτ + J_{t+Δt→T} \right)\]</span></p><h2 id=bellmans-differential-equation>Bellman&rsquo;s differential equation
+<a class=anchor href=#bellmans-differential-equation>#</a></h2><p>The term <span>\( J_{t+Δt→T} \)</span>
+can be expanded into
+<span>\[J_{t+Δt→T}
+=
+J_{t→T}
++
+∫_{t}^{t+Δt} \frac{dJ_{t→T}}{dτ} dτ\]</span>
+whereby its substitution we attain
+<span>\[J_{t→T}^*
+=
+\min_{\bm{u}} \left(
+∫_t^{t+Δt} L\,dτ
++
+J_{t→T}
++
+∫_{t}^{t+Δt} \frac{dJ_{t→T}}{dτ} dτ
+\right)\]</span>
+As
+<span>\[J_{t→T}^* = \min_{\bm{u}} \left( J_{t→T} \right)\]</span>
+the term <span>\( J_{t→T} \)</span>
+cancels out with the left side of the equation
+<span>\[0
+=
+\min_{\bm{u}} \left(
+∫_t^{t+Δt}
+L +
+\frac{dJ_{t→T}}{dτ}
+\ dτ
+\right)\]</span>
+and we may perform the manipulation
+<span>\[\frac{dJ_{t→T}}{dτ}
+=
+\frac{∂J_{t→T}}{∂\bm{x}} \bm{f}
++
+\frac{∂J_{t→T}}{∂τ}\]</span>
+Its substitution results in the equation
+<span>\[0
+=
+\min_{\bm{u}} \left(
+∫_t^{t+Δt}
+L + \frac{∂J_{t→T}}{∂\bm{x}}\bm{f} + \frac{∂J_{t→T}}{∂τ}
+\ dτ
+\right)\]</span></p><hr><p>If <span>\( Δt→0 \)</span>
+, we may approximate the integral with a Reimann sum and manipulate the resulting equation into the general form (independent from the interval) of the <em>Bellman&rsquo;s differential equation</em>
+<span>\[%\left.
+-\frac{∂J^*}{∂τ}
+%\right|_{τ=t}
+=
+%\left.
+\min_{\bm{u}} \left(
+L
++
+\frac{∂J}{∂\bm{x}}
+\bm{f}
+\right)
+%\right|_{τ=t}\]</span>
+evaluated at time <span>\( τ = t \)</span>
+from which we may derive the Linear Quadratic Regulator and with modifications, Pontrjagin&rsquo;s minimum principle.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/lieskjur/Notes/edit/main//content.en/docs/Bellman.md target=_blank rel=noopener><img src=/Notes/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#bellmans-equation>Bellman&rsquo;s equation</a></li><li><a href=#bellmans-differential-equation>Bellman&rsquo;s differential equation</a></li></ul></nav></div></aside></main></body></html>
