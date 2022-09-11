@@ -29,21 +29,21 @@ přičemž
 Jeho syntéza je založena na nalezní řešení *Bellmanovy diferenciální rovnice* [^1]
 {{< katex display >}}
 %\left.
--\frac{∂J^*(t)}{∂τ}
+-\frac{∂J^*}{∂τ}
 %\right|_{τ=t}
 =
 %\left.
 \min_{\bm{u}} \left(
 	L(\bm{x},\bm{u},τ)
 	+
-	\frac{∂J^*(t)}{∂\bm{x}}	
+	\frac{∂J^*}{∂\bm{x}}	
 	\bm{f}(\bm{x},\bm{u},τ)
 \right)
 %\right|_{τ=t}
 {{< /katex >}}
 vyjádřené v čase {{< katex >}} τ = t {{< /katex >}} s *Bellmanovou funkcí* [^1] ve tvaru
 {{< katex display >}}
-J^*(t) = \bm{x}(t)^T \bm{S} \, \bm{x}(t) \;,\quad \bm{S} = \bm{S}^T
+J^* = \bm{x}^T \bm{S} \, \bm{x} \;,\quad \bm{S} = \bm{S}^T
 {{< /katex >}}
 
 ---
@@ -88,4 +88,5 @@ která platí pro libovolné {{< katex >}} \bm{x}(t) {{< /katex >}} pokud je {{<
 \bm{Q} - \bm{S}\bm{B}\bm{R}^{-1} \bm{B}^T \bm{S} + \bm{S}\bm{A} + \bm{A}^T \bm{S}
 = 0
 {{< /katex >}}
+
 [^1]: [Belmannův princip optimality]({{< ref "Bellman.md" >}})
