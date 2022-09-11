@@ -7,12 +7,12 @@ languages:
   cs:
     languageName: Česky
     title: Poznámky
-    contentDir: content.cs
+    contentDir: content/cs
     weight: 2
   en:
     title: Notes
     languageName: English
-    contentDir: content.en
+    contentDir: content/en
     weight: 1
 
 params:
