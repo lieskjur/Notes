@@ -94,7 +94,7 @@ L(\bm{x},\bm{u},τ) + \frac{∂J(t)}{∂\bm{x}}\bm{f}(\bm{x},\bm{u},τ) + \frac{
 
 ---
 
-Pokud pro {{< katex >}} Δt→0 {{< /katex >}}, můžeme aproximovat integrál pomocí Reimannova součtu a výslednou rovnici upravit do tvaru tzv. *Bellmanovy diferenciální rovnice*
+Pokud {{< katex >}} Δt→0 {{< /katex >}}, můžeme aproximovat integrál pomocí Reimannova součtu a výslednou rovnici upravit do tvaru tzv. *Bellmanovy diferenciální rovnice*
 {{< katex display >}}
 %\left.
 -\frac{∂J^*(t)}{∂τ}
