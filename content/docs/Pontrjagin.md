@@ -59,11 +59,11 @@ a z něj odvodit stavové rovnice
 {{< katex display >}}
 \dot{\bm{x}} = \frac{∂H}{∂\bm{p}^T}
 \qquad 
-\dot{\bm{p}} = \frac{∂H}{∂\bm{x}^T}
+\dot{\bm{p}} = -\frac{∂H}{∂\bm{x}^T}
 {{< /katex >}}
 kde je využito že vektor {{< katex >}} \bm{p}(τ) {{< /katex >}} je stavový vektor (závislý pouze na {{< katex >}} τ {{< /katex >}}) a tedy platí
 {{< katex display >}}
-\frac{d\bm{p}}{dτ} = \frac{∂\bm{p}}{∂τ} = \frac{∂^2J}{∂τ ∂\bm{x}^T} = \frac{∂H}{∂\bm{x}^T}
+\frac{d\bm{p}}{dτ} = \frac{∂\bm{p}}{∂τ} = \frac{∂^2J}{∂τ ∂\bm{x}^T} = -\frac{∂H}{∂\bm{x}^T}
 {{< /katex >}}
 
 [^1]: [Belmannův princip optimality]({{< ref "Bellman.md" >}})

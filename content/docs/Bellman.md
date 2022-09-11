@@ -113,4 +113,4 @@ Pokud {{< katex >}} Δt→0 {{< /katex >}}, můžeme aproximovat integrál pomoc
 %\right|_{τ=t}
 {{< /katex >}}
 vyjádřené v čase {{< katex >}} τ = t {{< /katex >}}
-, ze které lze přímo odvodit [LQR]({{< ref "LQR.md" >}}) a s úpravou, Pontrjaginův princip minima.
+, ze které lze přímo odvodit [LQR]({{< ref "LQR.md" >}}) a s úpravou, [Pontrjaginův princip minima]({{< ref "Pontrjagin.md" >}}).
