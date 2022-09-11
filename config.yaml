@@ -3,17 +3,18 @@ baseURL: https://lieskjur.github.io/Notes/
 theme: hugo-book
 # enableGitInfo: true
 
+defaultContentLanguage: cs
 languages:
+  en:
+    languageName: English
+    title: Notes
+    contentDir: content/en
+    weight: 1
   cs:
-    languageName: Česky
+    languageName: Čeština
     title: Poznámky
     contentDir: content/cs
     weight: 2
-  en:
-    title: Notes
-    languageName: English
-    contentDir: content/en
-    weight: 1
 
 params:
   # BookTheme : "auto" # light(default)/dark/auto
