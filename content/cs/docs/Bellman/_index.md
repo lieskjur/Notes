@@ -11,18 +11,18 @@ Pro dynamický systém se stavovou zpětnou vazbou ve tvaru
 {{< /katex >}}
 kde {{< katex >}} \bm{x}(τ) {{< /katex >}} jsou stavy systému a {{< katex >}} \bm{u}(\bm{x}) {{< /katex >}}  funkce vstupů ze zpětnou vazbou, můžeme definovat pro trajektorii ze stavu {{< katex >}} \bm{x}(t) {{< /katex >}} do stavu {{< katex >}} \bm{x}(T) {{< /katex >}} kritérium optimality
 {{< katex display >}}
-J_{t→T} = ∫_{t}^{T} L(\bm{x},\bm{u},τ)\,dτ
+J_{⟨t,T⟩} = ∫_{t}^{T} L(\bm{x},\bm{u},τ)\,dτ
 {{< /katex >}}
 
 ---
 
 Pro libovolný stav {{< katex >}} \bm{x}(\tau) {{< /katex >}} pak existuje optimální řízení {{< katex >}} \bm{u}^*(τ) {{< /katex >}} pro dosažení žádaného stavu v čase {{< katex >}} T {{< /katex >}}
 {{< katex display >}}
-\bm{u}^* = \argmin_{\bm{u}} J_{t→T}
+\bm{u}^* = \argmin_{\bm{u}} J_{⟨t,T⟩}
 {{< /katex >}}
 kde *Bellmanovou funkcí* budeme nazýváme kritérium optimality při optimálním řízení
 {{< katex display >}}
-J_{t→T}^* = \min_{\bm{u}} J_{t→T}
+J_{⟨t,T⟩}^* = \min_{\bm{u}} J_{⟨t,T⟩}
 {{< /katex >}}
 
 ## Bellmanova rovnice
@@ -30,59 +30,59 @@ J_{t→T}^* = \min_{\bm{u}} J_{t→T}
 Pokud hledáme optimální řízení ve stavu {{< katex >}} \bm{x}(t) {{< /katex >}}, můžeme rozdělit celou trajektorii na dva úseky:
 
 1. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t,t+Δt) {{< /katex >}} s kritériem optimality {{< katex >}} \int_t^{t+Δt} L\,dτ {{< /katex >}}
-2. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t+Δt,T⟩ {{< /katex >}} s kritériem optimality {{< katex >}} J_{t+Δt→T} {{< /katex >}}
+2. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t+Δt,T⟩ {{< /katex >}} s kritériem optimality {{< katex >}} J_{⟨t+Δt,T⟩} {{< /katex >}}
 
 ![trajektorie](trajektorie.png)
 
 S definovanými úseky můžeme Bellmanovu funkci rozepsat do tvaru tzv. *Bellmanovy rovnice*
 {{< katex display >}}
-J_{t→T}^* = \min_{\bm{u}} \left( \int_t^{t+Δt} L\,dτ + J_{t+Δt→T} \right)
+J_{⟨t,T⟩}^* = \min_{\bm{u}} \left( \int_t^{t+Δt} L\,dτ + J_{⟨t+Δt,T⟩} \right)
 {{< /katex >}}
 
 ## Bellmanova diferenciání rovnice
 
-Člen {{< katex >}} J_{t+Δt→T} {{< /katex >}} můžeme rozepsat jako
+Člen {{< katex >}} J_{⟨t+Δt,T⟩} {{< /katex >}} můžeme rozepsat jako
 {{< katex display >}}
-J_{t+Δt→T}
+J_{⟨t+Δt,T⟩}
 =
-J_{t→T}
+J_{⟨t,T⟩}
 +
-∫_{t}^{t+Δt} \frac{dJ_{t→T}}{dτ} dτ
+∫_{t}^{t+Δt} \frac{dJ}{dτ} dτ
 {{< /katex >}}
 kdy dosazením získáme
 {{< katex display >}}
-J_{t→T}^*
+J_{⟨t,T⟩}^*
 =
 \min_{\bm{u}} \left(
 	∫_t^{t+Δt} L\,dτ
 	+
-	J_{t→T}
+	J_{⟨t,T⟩}
 	+
-	∫_{t}^{t+Δt} \frac{dJ_{t→T}}{dτ} dτ
+	∫_{t}^{t+Δt} \frac{dJ}{dτ} dτ
 \right)
 {{< /katex >}}
 Jelikož platí
 {{< katex display >}}
-J_{t→T}^* = \min_{\bm{u}} \left( J_{t→T} \right)
+J_{⟨t,T⟩}^* = \min_{\bm{u}} \left( J_{⟨t,T⟩} \right)
 {{< /katex >}}
-člen {{< katex >}} J_{t→T} {{< /katex >}} můžeme vykrátit s levou stranou
+člen {{< katex >}} J_{⟨t,T⟩} {{< /katex >}} můžeme vykrátit s levou stranou
 {{< katex display >}}
 0
 =
 \min_{\bm{u}} \left(
 	∫_t^{t+Δt}
 	L +
-    \frac{dJ_{t→T}}{dτ}
+    \frac{dJ}{dτ}
     \ dτ
 \right)
 {{< /katex >}}
 a provést úpravu
 {{< katex display >}}
-\frac{dJ_{t→T}}{dτ}
+\frac{dJ}{dτ}
 =
-\frac{∂J_{t→T}}{∂\bm{x}} \bm{f}
+\frac{∂J}{∂\bm{x}} \bm{f}
 +
-\frac{∂J_{t→T}}{∂τ}
+\frac{∂J}{∂τ}
 {{< /katex >}}
 Výsledkem jejího dosazení je rovnice
 {{< katex display >}}
@@ -90,14 +90,14 @@ Výsledkem jejího dosazení je rovnice
 =
 \min_{\bm{u}} \left(
 ∫_t^{t+Δt}
-L + \frac{∂J_{t→T}}{∂\bm{x}}\bm{f} + \frac{∂J_{t→T}}{∂τ}
+L + \frac{∂J}{∂\bm{x}}\bm{f} + \frac{∂J}{∂τ}
 \ dτ
 \right)
 {{< /katex >}}
 
 ---
 
-Pokud {{< katex >}} Δt→0 {{< /katex >}}, můžeme aproximovat integrál pomocí Reimannova součtu a výslednou rovnici upravit do obecného tvaru (nezávislého na mezích kritéria optimality) tzv. *Bellmanovy diferenciální rovnice*
+Pokud {{< katex >}} Δt→0 {{< /katex >}}, můžeme aproximovat integrál pomocí Reimannova součtu a výslednou rovnici upravit do tvaru tzv. *Bellmanovy diferenciální rovnice*
 {{< katex display >}}
 %\left.
 -\frac{∂J^*}{∂τ}
