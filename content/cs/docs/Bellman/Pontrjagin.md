@@ -13,18 +13,18 @@ Přestože Pontrjaginův princip minima byl odvozen nezávisle v sovětském sva
 \min_{\bm{u}} \left(
 	L
 	+
-	\frac{∂J}{∂\bm{x}}	
+	\frac{∂J^*}{∂\bm{x}}	
 	\bm{f}
 \right)
 %\right|_{τ=t}
 {{< /katex >}}
 Základem je zavedení Hamiltoniánu
 {{< katex display >}}
-H = -\frac{∂J}{∂τ}
+H = -\frac{∂J^*}{∂τ}
 {{< /katex >}}
 a konjugovaného stavového vektoru
 {{< katex display >}}
-\bm{p} = \frac{∂J}{∂\bm{x}^T}
+\bm{p} = \frac{∂J^*}{∂\bm{x}^T}
 {{< /katex >}}
 
 ---
@@ -32,7 +32,7 @@ a konjugovaného stavového vektoru
 Bellmanovu diferenciální rovnici pak můžeme psát jako
 {{< katex display >}}
 %\left.
-H^*
+H
 %\right|_{τ=t}
 =
 %\left.
@@ -44,9 +44,9 @@ H^*
 \right)
 %\right|_{τ=t}
 {{< /katex >}}
-kde {{< katex >}} H^* {{< /katex >}} je Hamiltonián při dosazení optimálního řízení {{< katex >}} \bm{u}^* {{< /katex >}} které jej minimalizuje
+kde {{< katex >}} H {{< /katex >}} je Hamiltonián při dosazení optimálního řízení {{< katex >}} \bm{u}_\text{opt} {{< /katex >}} které jej minimalizuje
 {{< katex display >}}
-\bm{u}^* = \argmin_{\bm{u}} H
+\bm{u}_\text{opt} = \argmin_{\bm{u}} H
 {{< /katex >}}
 
 ---
@@ -63,7 +63,7 @@ a z něj odvodit stavové rovnice
 {{< /katex >}}
 kde je využito že vektor {{< katex >}} \bm{p} {{< /katex >}} je stavový vektor (závislý pouze na {{< katex >}} τ {{< /katex >}}) a tedy platí
 {{< katex display >}}
-\frac{d\bm{p}}{dτ} = \frac{∂\bm{p}}{∂τ} = \frac{∂^2J}{∂τ ∂\bm{x}^T} = -\frac{∂H}{∂\bm{x}^T}
+\frac{d\bm{p}}{dτ} = \frac{∂\bm{p}}{∂τ} = \frac{∂^2J^*}{∂τ ∂\bm{x}^T} = -\frac{∂H}{∂\bm{x}^T}
 {{< /katex >}}
 
 [^1]: [Belmannův princip optimality]({{< ref "Bellman.md" >}})

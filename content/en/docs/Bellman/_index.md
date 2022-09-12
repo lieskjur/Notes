@@ -1,6 +1,6 @@
 ---
 title: Bellman's principle of optimality
-draft: false
+draft: true
 ---
 
 # Bellman's principle of optimality
@@ -13,12 +13,13 @@ where {{< katex >}} \bm{x}(τ) {{< /katex >}} are the system's states and {{< ka
 {{< katex display >}}
 J_{⟨t,T⟩} = ∫_{t}^{T} L(\bm{x},\bm{u},τ)\,dτ
 {{< /katex >}}
+where {{< katex >}} L(\bm{x},\bm{u},τ) {{< /katex >}} is the additive cost
 
 ---
 
-For any state {{< katex >}} \bm{x}(\tau) {{< /katex >}} there exists an optimal input {{< katex >}} \bm{u}^*(τ) {{< /katex >}} for achieving the desired state at time {{< katex >}} T {{< /katex >}}
+For any state {{< katex >}} \bm{x}(\tau) {{< /katex >}} there exists an optimal input {{< katex >}} \bm{u}_\text{opt}(τ) {{< /katex >}} for achieving the desired state at time {{< katex >}} T {{< /katex >}}
 {{< katex display >}}
-\bm{u}^* = \argmin_{\bm{u}} J_{⟨t,T⟩}
+\bm{u}_\text{opt} = \argmin_{\bm{u}} J_{⟨t,T⟩}
 {{< /katex >}}
 where an objective function achieved with optimal inputs will be referred to as *Bellman function*
 {{< katex display >}}

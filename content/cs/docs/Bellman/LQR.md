@@ -8,9 +8,9 @@ Linear Quadratic Regulator (LQR)
 
 LQR je určen pro regulaci lineárního systému se stavovou zpětnou vazbou ve tvaru
 {{< katex display >}}
-\bm{\dot{x}} = \bm{A} \, \bm{x} + \bm{B} \, \bm{u} \;,\quad \bm{u} = \bm{u}(\bm{x})
+\bm{\dot{x}} = \bm{A} \, \bm{x} + \bm{B} \, \bm{u} \;,\quad \bm{u} = -\bm{K}\bm{x}
 {{< /katex >}}
-kde {{< katex >}} \bm{x} = \bm{x}(τ) {{< /katex >}} s kvadratickým kritériem optimality
+s kvadratickým kritériem optimality trajektorie
 {{< katex display >}}
 J = \int_{-∞}^{∞}
 \underbrace{
@@ -41,7 +41,7 @@ Jeho syntéza je založena na nalezní řešení *Bellmanovy diferenciální rov
 \right)
 %\right|_{τ=t}
 {{< /katex >}}
-vyjádřené v čase {{< katex >}} τ = t {{< /katex >}} s *Bellmanovou funkcí* [^1] ve tvaru
+vyjádřené v čase {{< katex >}} τ = t {{< /katex >}} s cenou do cíle
 {{< katex display >}}
 J^* = \bm{x}^T \bm{S} \, \bm{x} \;,\quad \bm{S} = \bm{S}^T
 {{< /katex >}}
@@ -64,9 +64,9 @@ přičemž z podmínky lokálního extrému
 =
 0
 {{< /katex >}}
-lze vyjádřit optimální řízení {{< katex >}} \bm{u}^*(τ) {{< /katex >}}
+lze vyjádřit optimální řízení {{< katex >}} \bm{u}_\text{opt}(τ) {{< /katex >}}
 {{< katex display >}}
-\bm{u}^* = - \bm{R}^{-1} \bm{B}^T \bm{S} \, \bm{x} 
+\bm{u}_\text{opt} = - \bm{R}^{-1} \bm{B}^T \bm{S} \, \bm{x} 
 {{< /katex >}}
 které když dosadíme, získáme rovnici
 {{< katex display >}}

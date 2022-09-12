@@ -1,7 +1,7 @@
 baseURL: https://lieskjur.github.io/Notes/
 
 theme: hugo-book
-# enableGitInfo: true
+enableGitInfo: true
 
 defaultContentLanguage: cs
 languages:
