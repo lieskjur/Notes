@@ -4,21 +4,20 @@ draft: false
 weight: 11
 ---
 
-rigid contact in equations of motion can be inforced by a single quadratic equality constraint (QEC) and two linear inequality constraint (LIC)
+rigid contact in equations of motion can be inforced by a single quadratic equality constraint and two linear inequality constraint
 {{< katex display >}}
 \begin{aligned}
-	\text{QEC} &:& \bm{ϕ}(\bm{q})⋅\bm{f} &= 0
+	\bm{ϕ}(\bm{q})⋅\bm{f} &= 0
 	\\
-	\text{LIC} &:& \bm{\phi}(\bm{q}) &≥ 0
+	\bm{\phi}(\bm{q}) &≥ 0
 	\\
-	\text{LIC} &:& \bm{f} &≥ 0
+	\bm{f} &≥ 0
 \end{aligned}
 {{< /katex >}}
-both off which can be implemented as quadratic inequalities in the form
+which can be written in the compact form of an LSP as
 {{< katex display >}}
-\frac{1}{2} \bm{x}^T\bm{Q}_i\bm{x} + \bm{r}_i^T\bm{x} + c_i ≥ 0 \;,\quad i = 1,\dots,p
+\operatornamewithlimits{find}_{\bm{f}} \ \text{s.t.}: 0 ≤ \bm{ϕ}(\bm{q}) ⟂ \bm{f} ≥ 0
 {{< /katex >}}
-used by QCQP solvers
 
 ### Example
 Take a simple cart
@@ -35,36 +34,50 @@ suplemented by contact constraints
 	\;,\quad 
 	f ≥ 0
 {{< /katex >}}
-
-## Forward Dynamics
-Solving a single step of dynamics can be formulated as finding a solution to a Linear Complementarity Problem (LCP)
+written in the compact form of an LSP as
 {{< katex display >}}
-\operatornamewithlimits{find}_{\bm{z}} \ \text{s.t.}: \quad 0 \leq (\bm{q} + \bm{M}\bm{z}) \perp \bm{z} ≥ 0
+\operatornamewithlimits{find}_{f} \ \text{s.t.}: 0 ≤ q ⟂ f ≥ 0
 {{< /katex >}}
 
-First the descrete step of the simulation must be approximated using the semi-implicit Euler scheme
+---
+
+By discretizing the EoM we can approximate {{< katex >}} q_{n+1} {{< /katex >}} using the semi-implicit Euler scheme
 {{< katex display >}}
 \begin{aligned}
-\bm{q}_{n+1} &≈ \bm{q}_n + h \dot{\bm{q}}_{n+1} \\
-\dot{\bm{q}}_{n+1} &≈ \dot{\bm{q}}_n + h \ddot{\bm{q}}_n
+q_{n+1} &≈ q_n + h \dot{q}_{n+1} \\
+\dot{q}_{n+1} &≈ \dot{q}_n + h \ddot{q}_n
 \end{aligned}
 {{< /katex >}}
-where we will assume dynamics in the general form
+where
 {{< katex display >}}
-\bm{H}\ddot{\bm{q}}_{n} = \bm{τ}(\bm{q}_n,\dot{\bm{q}}_n,\bm{u}_n) + \bm{J}(\bm{q}_n)\bm{f}_n
+\ddot{q}_{n} = \frac{u_n+f_n}{m}
 {{< /katex >}}
 After consecutive substitutions we attain the approximation
 {{< katex display >}}
-\underbrace{ \bm{q}_{n+1} }_{\bm{w}}
+q_{n+1}
 =
-\underbrace{
-	\bm{q}_n + h \dot{\bm{q}}_n + h^2 \bm{H}^{-1}\bm{τ}(\bm{q}_n,\dot{\bm{q}}_n,\bm{u}_n)
-	}_{\bm{q}}
-+
-\underbrace{h^2 \bm{H}^{-1}\bm{J}(\bm{q}_n)}_{\bm{M}}
-\underbrace{\bm{f}_n}_{\bm{z}}
+q_n + h \dot{q}_n + \frac{h^2}{m} u_n + \frac{h^2}{m} f_n
 {{< /katex >}}
-with the terms of the LCP under the braces
+for which we may formulate the LCP
+{{< katex display >}}
+\operatornamewithlimits{find}_{f} \ \text{s.t.}: 0 ≤ q_{n+1} ⟂ f_n ≥ 0
+{{< /katex >}}
+
+---
+
+In line with the original definiton of the LCP we have
+{{< katex display >}}
+\bm{w} = q_{n+1}
+\;,\quad 
+\bm{z} = f	
+{{< /katex >}}
+and terms
+{{< katex display >}}
+\begin{aligned}
+	\bm{q} &= q_n + h \dot{q}_n + \frac{h^2}{m} u_n \\
+	\bm{M} &= \frac{h^2}{m}
+\end{aligned}
+{{< /katex >}}
 
 ---
 

@@ -3,7 +3,7 @@ title: Linear Complementarity Problem
 draft: false
 ---
 
-Linear Complementarity problems cn be defined as
+Linear Complementarity problems can be defined as
 {{< katex display >}}
 \operatornamewithlimits{find}_{\bm{w},\bm{z}} \ \text{subject to}: \quad
 \begin{aligned}
