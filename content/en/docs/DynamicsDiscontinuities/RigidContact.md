@@ -67,15 +67,15 @@ for which we may formulate the LCP
 
 In line with the original definiton of the LCP we have
 {{< katex display >}}
-\bm{w} = q_{n+1}
+\bm{w} \coloneqq q_{n+1}
 \;,\quad 
-\bm{z} = f	
+\bm{z} \coloneqq f	
 {{< /katex >}}
 and terms
 {{< katex display >}}
 \begin{aligned}
-	\bm{q} &= q_n + h \dot{q}_n + \frac{h^2}{m} u_n \\
-	\bm{M} &= \frac{h^2}{m}
+	\bm{q} &\coloneqq q_n + h \dot{q}_n + \frac{h^2}{m} u_n \\
+	\bm{M} &\coloneqq \frac{h^2}{m}
 \end{aligned}
 {{< /katex >}}
 

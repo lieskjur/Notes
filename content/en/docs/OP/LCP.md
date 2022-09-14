@@ -1,6 +1,7 @@
 ---
-title: Linear Complementarity Problem
+title: Linear Complementarity Problem (LCP)
 draft: false
+weight: 1
 ---
 
 Linear Complementarity problems can be defined as
