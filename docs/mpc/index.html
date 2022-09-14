@@ -1,0 +1,102 @@
+<!doctype html><html lang=cs dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Pro diskrétní systémy ve tvaru \[\begin{aligned} \bm{x}_{k+1} &= \bm{A}\bm{x}_k + \bm{B}\bm{u}_k \\ \bm{y}_k &= \bm{C}\bm{x}_k \end{aligned}\] existuje forma optimálního řízení, které využívá kvadratického kritéria \[J_{i+1} = (\bm{y}_{i+1}-\bm{w}_{i+1})^T \bm{Q}_{i+1} (\bm{y}_{i+1}-\bm{w}_{i+1}) + \bm{u}_i^T\bm{R}_i\bm{u}_i\] kde \( \bm{w}_{i+1} \) jsou žádané hodnoty výstupů na horizontu \[i+1 = k+1,\dots,k+N\] pro určení optimálního řízení \( \bm{u}^*_i \) .
+Jednotlivé stavy systému \( \bm{x}_i \) můžeme vyjádřit jako \[\begin{aligned} \bm{x}_{k+1} &= \bm{A}\bm{x}_k + \bm{B}\bm{u}_k \\ \bm{x}_{k+2} &= \bm{A}^2\bm{x}_k + \bm{A}\bm{B}\bm{u}_k + \bm{B}\bm{u}_{k+1}\\ \bm{x}_{k+n} &= \bm{A}^n\bm{x}_k + \sum_{j=1}^n \bm{A}^{n-j}\bm{B}\bm{u}_{k+j-1} \end{aligned}\] přičemž jeho výstupy nabývají hodnot \[\bm{y}_{k+n} = \bm{C}\bm{A}^n\bm{x}_k + \sum_{j=1}^n \bm{C}\bm{A}^{n-j}\bm{B}\bm{u}_{k+j}\] Výstupy \( \bm{y}_i \,,\; i = k+1,\ldots,k+N \) můžeme seřadit do vektoru \[\bm{Y} = \bm{f} + \bm{G}\bm{U}\] kde \[\bm{Y} = \begin{bmatrix} \bm{y}_{k+1} \\ \vdots \\ \bm{y}_{k+N} \end{bmatrix} \;,\quad \bm{f} = \begin{bmatrix} \bm{C}\bm{A} \\ \vdots \\ \bm{C}\bm{A}^N \end{bmatrix} \bm{x}_k \;,\quad \bm{G} = \begin{bmatrix} \bm{C}\bm{B} & & \bm{0} \\ \vdots & \ddots & \\ \bm{C}\bm{A}^{N-1}\bm{B} & \dots & \bm{C}\bm{B} \end{bmatrix} \;,\quad \bm{U} = \begin{bmatrix} \bm{u}_{k} \\ \vdots \\ \bm{u}_{k+N-1} \end{bmatrix}\] Pro celý horizont můžeme utvořit kvadratické kritérium optimality \[J = (\bm{W}-\bm{Y})^T \bm{Q} (\bm{W}-\bm{Y}) + \bm{U}^T\bm{R}\bm{U}\] kde \( \bm{Q} \) a \( \bm{R} \) jsou váhové matice a \( \bm{W} \) vektor žádaných výstupů \[\bm{W} = \begin{bmatrix} \bm{w}_{k+1} \\ \vdots \\ \bm{w}_{k+N} \end{bmatrix} \;,\quad \bm{Q} = \begin{bmatrix} \bm{Q}_{k+1} & & \bm{0} \\ \vdots & \ddots & \\ \bm{0} & \dots & \bm{Q}_{k+N} \end{bmatrix} \;,\quad \bm{R} = \begin{bmatrix} \bm{R}_{k} & & \bm{0} \\ \vdots & \ddots & \\ \bm{0} & \dots & \bm{R}_{k+N-1} \end{bmatrix}\] Po dozazení \( \bm{Y} = \bm{f} + \bm{G}\bm{U} \) můžeme najít jeho minimum pomocí podmínky \[\frac{∂J}{∂\bm{U}} = \bm{0}\] "><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="Prediktivní řízení"><meta property="og:description" content="Pro diskrétní systémy ve tvaru \[\begin{aligned} \bm{x}_{k+1} &= \bm{A}\bm{x}_k + \bm{B}\bm{u}_k \\ \bm{y}_k &= \bm{C}\bm{x}_k \end{aligned}\] existuje forma optimálního řízení, které využívá kvadratického kritéria \[J_{i+1} = (\bm{y}_{i+1}-\bm{w}_{i+1})^T \bm{Q}_{i+1} (\bm{y}_{i+1}-\bm{w}_{i+1}) + \bm{u}_i^T\bm{R}_i\bm{u}_i\] kde \( \bm{w}_{i+1} \) jsou žádané hodnoty výstupů na horizontu \[i+1 = k+1,\dots,k+N\] pro určení optimálního řízení \( \bm{u}^*_i \) .
+Jednotlivé stavy systému \( \bm{x}_i \) můžeme vyjádřit jako \[\begin{aligned} \bm{x}_{k+1} &= \bm{A}\bm{x}_k + \bm{B}\bm{u}_k \\ \bm{x}_{k+2} &= \bm{A}^2\bm{x}_k + \bm{A}\bm{B}\bm{u}_k + \bm{B}\bm{u}_{k+1}\\ \bm{x}_{k+n} &= \bm{A}^n\bm{x}_k + \sum_{j=1}^n \bm{A}^{n-j}\bm{B}\bm{u}_{k+j-1} \end{aligned}\] přičemž jeho výstupy nabývají hodnot \[\bm{y}_{k+n} = \bm{C}\bm{A}^n\bm{x}_k + \sum_{j=1}^n \bm{C}\bm{A}^{n-j}\bm{B}\bm{u}_{k+j}\] Výstupy \( \bm{y}_i \,,\; i = k+1,\ldots,k+N \) můžeme seřadit do vektoru \[\bm{Y} = \bm{f} + \bm{G}\bm{U}\] kde \[\bm{Y} = \begin{bmatrix} \bm{y}_{k+1} \\ \vdots \\ \bm{y}_{k+N} \end{bmatrix} \;,\quad \bm{f} = \begin{bmatrix} \bm{C}\bm{A} \\ \vdots \\ \bm{C}\bm{A}^N \end{bmatrix} \bm{x}_k \;,\quad \bm{G} = \begin{bmatrix} \bm{C}\bm{B} & & \bm{0} \\ \vdots & \ddots & \\ \bm{C}\bm{A}^{N-1}\bm{B} & \dots & \bm{C}\bm{B} \end{bmatrix} \;,\quad \bm{U} = \begin{bmatrix} \bm{u}_{k} \\ \vdots \\ \bm{u}_{k+N-1} \end{bmatrix}\] Pro celý horizont můžeme utvořit kvadratické kritérium optimality \[J = (\bm{W}-\bm{Y})^T \bm{Q} (\bm{W}-\bm{Y}) + \bm{U}^T\bm{R}\bm{U}\] kde \( \bm{Q} \) a \( \bm{R} \) jsou váhové matice a \( \bm{W} \) vektor žádaných výstupů \[\bm{W} = \begin{bmatrix} \bm{w}_{k+1} \\ \vdots \\ \bm{w}_{k+N} \end{bmatrix} \;,\quad \bm{Q} = \begin{bmatrix} \bm{Q}_{k+1} & & \bm{0} \\ \vdots & \ddots & \\ \bm{0} & \dots & \bm{Q}_{k+N} \end{bmatrix} \;,\quad \bm{R} = \begin{bmatrix} \bm{R}_{k} & & \bm{0} \\ \vdots & \ddots & \\ \bm{0} & \dots & \bm{R}_{k+N-1} \end{bmatrix}\] Po dozazení \( \bm{Y} = \bm{f} + \bm{G}\bm{U} \) můžeme najít jeho minimum pomocí podmínky \[\frac{∂J}{∂\bm{U}} = \bm{0}\] "><meta property="og:type" content="article"><meta property="og:url" content="https://lieskjur.github.io/Notes/docs/mpc/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-09-14T21:08:49+02:00"><meta property="og:site_name" content="Poznámky"><title>Prediktivní řízení | Poznámky</title><link rel=manifest href=/Notes/manifest.json><link rel=icon href=/Notes/favicon.png type=image/x-icon><link rel=stylesheet href=/Notes/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin=anonymous><script defer src=/Notes/flexsearch.min.js></script>
+<script defer src=/Notes/cs.search.min.a24087e6f880537237186f72d429b18f7246c15b6ddba258141dbc5b3d98ba8b.js integrity="sha256-okCH5viAU3I3GG9y1Cmxj3JGwVtt26JYFB28Wz2Yuos=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/Notes/><span>Poznámky</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Vyhledávat aria-label=Vyhledávat maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/Notes/svg/translate.svg class=book-icon alt=Languages>
+Čeština</a></label><ul><li><a href=https://lieskjur.github.io/Notes/en/>English</a></li></ul></li></ul><ul><li><a href=/Notes/docs/bellman/>Bellmanův princip optimality</a><ul><li><a href=/Notes/docs/bellman/lqr/>Linear Quadratic Regulator</a></li><li><a href=/Notes/docs/bellman/pontrjagin/>Pontjaginův princip minima</a></li></ul></li><li><a href=/Notes/docs/mpc/ class=active>Prediktivní řízení</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/Notes/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Prediktivní řízení</strong>
+<label for=toc-control><img src=/Notes/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents></nav></aside></header><article class=markdown><p>Pro diskrétní systémy ve tvaru
+<link rel=stylesheet href=/Notes/katex/katex.css><script defer src=/Notes/katex/katex.min.js></script>
+<script defer src=/Notes/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>
+\[\begin{aligned}
+\bm{x}_{k+1} &= \bm{A}\bm{x}_k + \bm{B}\bm{u}_k \\
+\bm{y}_k &= \bm{C}\bm{x}_k
+\end{aligned}\]</span>
+existuje forma optimálního řízení, které využívá kvadratického kritéria
+<span>\[J_{i+1}
+=
+(\bm{y}_{i+1}-\bm{w}_{i+1})^T \bm{Q}_{i+1} (\bm{y}_{i+1}-\bm{w}_{i+1})
++
+\bm{u}_i^T\bm{R}_i\bm{u}_i\]</span>
+kde <span>\( \bm{w}_{i+1} \)</span>
+jsou žádané hodnoty výstupů na horizontu
+<span>\[i+1 = k+1,\dots,k+N\]</span>
+pro určení optimálního řízení <span>\( \bm{u}^*_i \)</span>
+.</p><hr><p>Jednotlivé stavy systému <span>\( \bm{x}_i \)</span>
+můžeme vyjádřit jako
+<span>\[\begin{aligned}
+\bm{x}_{k+1} &= \bm{A}\bm{x}_k + \bm{B}\bm{u}_k \\
+\bm{x}_{k+2} &= \bm{A}^2\bm{x}_k + \bm{A}\bm{B}\bm{u}_k + \bm{B}\bm{u}_{k+1}\\
+\bm{x}_{k+n} &= \bm{A}^n\bm{x}_k + \sum_{j=1}^n \bm{A}^{n-j}\bm{B}\bm{u}_{k+j-1}
+\end{aligned}\]</span>
+přičemž jeho výstupy nabývají hodnot
+<span>\[\bm{y}_{k+n} = \bm{C}\bm{A}^n\bm{x}_k + \sum_{j=1}^n \bm{C}\bm{A}^{n-j}\bm{B}\bm{u}_{k+j}\]</span></p><hr><p>Výstupy <span>\( \bm{y}_i \,,\; i = k+1,\ldots,k+N \)</span>
+můžeme seřadit do vektoru
+<span>\[\bm{Y} = \bm{f} + \bm{G}\bm{U}\]</span>
+kde
+<span>\[\bm{Y}
+=
+\begin{bmatrix}
+\bm{y}_{k+1} \\
+\vdots \\
+\bm{y}_{k+N}
+\end{bmatrix}
+\;,\quad
+\bm{f}
+=
+\begin{bmatrix}
+\bm{C}\bm{A} \\
+\vdots \\
+\bm{C}\bm{A}^N
+\end{bmatrix}
+\bm{x}_k
+\;,\quad
+\bm{G}
+=
+\begin{bmatrix}
+\bm{C}\bm{B} & & \bm{0} \\
+\vdots & \ddots & \\
+\bm{C}\bm{A}^{N-1}\bm{B} & \dots & \bm{C}\bm{B}
+\end{bmatrix}
+\;,\quad
+\bm{U}
+=
+\begin{bmatrix}
+\bm{u}_{k} \\
+\vdots \\
+\bm{u}_{k+N-1}
+\end{bmatrix}\]</span></p><hr><p>Pro celý horizont můžeme utvořit kvadratické kritérium optimality
+<span>\[J = (\bm{W}-\bm{Y})^T \bm{Q} (\bm{W}-\bm{Y}) + \bm{U}^T\bm{R}\bm{U}\]</span>
+kde <span>\( \bm{Q} \)</span>
+a <span>\( \bm{R} \)</span>
+jsou váhové matice a <span>\( \bm{W} \)</span>
+vektor žádaných výstupů
+<span>\[\bm{W}
+=
+\begin{bmatrix}
+\bm{w}_{k+1} \\
+\vdots \\
+\bm{w}_{k+N}
+\end{bmatrix}
+\;,\quad
+\bm{Q}
+=
+\begin{bmatrix}
+\bm{Q}_{k+1} & & \bm{0} \\
+\vdots & \ddots & \\
+\bm{0} & \dots & \bm{Q}_{k+N}
+\end{bmatrix}
+\;,\quad
+\bm{R}
+=
+\begin{bmatrix}
+\bm{R}_{k} & & \bm{0} \\
+\vdots & \ddots & \\
+\bm{0} & \dots & \bm{R}_{k+N-1}
+\end{bmatrix}\]</span>
+Po dozazení <span>\( \bm{Y} = \bm{f} + \bm{G}\bm{U} \)</span>
+můžeme najít jeho minimum pomocí podmínky
+<span>\[\frac{∂J}{∂\bm{U}} = \bm{0}\]</span></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/lieskjur/Notes/commit/d1748ed71258ec230345f38484d649497ef03fc1 title='Autor poslední změny Juraj Lieskovský | September 14, 2022' target=_blank rel=noopener><img src=/Notes/svg/calendar.svg class=book-icon alt=Calendar>
+<span>September 14, 2022</span></a></div><div><a class="flex align-center" href=https://github.com/lieskjur/Notes/edit/main//content/cs/docs/MPC.md target=_blank rel=noopener><img src=/Notes/svg/edit.svg class=book-icon alt=Edit>
+<span>Upravit tuto stránku</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents></nav></div></aside></main></body></html>
