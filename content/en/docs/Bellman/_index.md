@@ -6,52 +6,52 @@ draft: true
 # Bellman's principle of optimality
 
 For a dynamic system with state feedback in the form
-{{< katex display >}}
+{{< k display >}}
 \dot{\bm{x}} = \bm{f}(\bm{x},\bm{u},τ) \;,\quad \bm{u} = \bm{u}(\bm{x})
-{{< /katex >}}
-where {{< katex >}} \bm{x}(τ) {{< /katex >}} are the system's states and {{< katex >}} \bm{u}(\bm{x}) {{< /katex >}} a function of state feedback inputs, we may define for the trajectory from state {{< katex >}} \bm{x}(t) {{< /katex >}} to state {{< katex >}} \bm{x}(T) {{< /katex >}} an objective function
-{{< katex display >}}
+{{< /k >}}
+where {{<k>}} \bm{x}(τ) {{</k>}} are the system's states and {{<k>}} \bm{u}(\bm{x}) {{</k>}} a function of state feedback inputs, we may define for the trajectory from state {{<k>}} \bm{x}(t) {{</k>}} to state {{<k>}} \bm{x}(T) {{</k>}} an objective function
+{{< k display >}}
 J_{⟨t,T⟩} = ∫_{t}^{T} L(\bm{x},\bm{u},τ)\,dτ
-{{< /katex >}}
-where {{< katex >}} L(\bm{x},\bm{u},τ) {{< /katex >}} is the additive cost
+{{< /k >}}
+where {{<k>}} L(\bm{x},\bm{u},τ) {{</k>}} is the additive cost
 
 ---
 
-For any state {{< katex >}} \bm{x}(\tau) {{< /katex >}} there exists an optimal input {{< katex >}} \bm{u}_\text{opt}(τ) {{< /katex >}} for achieving the desired state at time {{< katex >}} T {{< /katex >}}
-{{< katex display >}}
+For any state {{<k>}} \bm{x}(\tau) {{</k>}} there exists an optimal input {{<k>}} \bm{u}_\text{opt}(τ) {{</k>}} for achieving the desired state at time {{<k>}} T {{</k>}}
+{{< k display >}}
 \bm{u}_\text{opt} = \argmin_{\bm{u}} J_{⟨t,T⟩}
-{{< /katex >}}
+{{< /k >}}
 where an objective function achieved with optimal inputs will be referred to as *Bellman function*
-{{< katex display >}}
+{{< k display >}}
 J_{⟨t,T⟩}^* = \min_{\bm{u}} J_{⟨t,T⟩}
-{{< /katex >}}
+{{< /k >}}
 
 ## Bellman's equation
 
-If we are searching for the optimal input at state {{< katex >}} \bm{x}(t) {{< /katex >}}, we may separate the entire trajectory into two segments:
+If we are searching for the optimal input at state {{<k>}} \bm{x}(t) {{</k>}}, we may separate the entire trajectory into two segments:
 
-1. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t,t+Δt) {{< /katex >}} with an objective function {{< katex >}} \int_t^{t+Δt} L\,dτ {{< /katex >}}
-2. {{< katex >}} \bm{x}(τ) \,,\; τ ∈ ⟨t+Δt,T⟩ {{< /katex >}} with an objective function {{< katex >}} J_{⟨t+Δt,T⟩} {{< /katex >}}
+1. {{<k>}} \bm{x}(τ) \,,\; τ ∈ ⟨t,t+Δt) {{</k>}} with an objective function {{<k>}} \int_t^{t+Δt} L\,dτ {{</k>}}
+2. {{<k>}} \bm{x}(τ) \,,\; τ ∈ ⟨t+Δt,T⟩ {{</k>}} with an objective function {{<k>}} J_{⟨t+Δt,T⟩} {{</k>}}
 
 ![trajektory](trajectory.png)
 
 For the defined segments we may write the Bellman function in the form of the so-called *Bellman equation*
-{{< katex display >}}
+{{< k display >}}
 J_{⟨t,T⟩}^* = \min_{\bm{u}} \left( \int_t^{t+Δt} L\,dτ + J_{⟨t+Δt,T⟩} \right)
-{{< /katex >}}
+{{< /k >}}
 
 ## Bellman's differential equation
 
-The term {{< katex >}} J_{⟨t+Δt,T⟩} {{< /katex >}} can be expanded into
-{{< katex display >}}
+The term {{<k>}} J_{⟨t+Δt,T⟩} {{</k>}} can be expanded into
+{{< k display >}}
 J_{⟨t+Δt,T⟩}
 =
 J_{⟨t,T⟩}
 +
 ∫_{t}^{t+Δt} \frac{dJ}{dτ} dτ
-{{< /katex >}}
+{{< /k >}}
 whereby its substitution we attain
-{{< katex display >}}
+{{< k display >}}
 J_{⟨t,T⟩}^*
 =
 \min_{\bm{u}} \left(
@@ -61,13 +61,13 @@ J_{⟨t,T⟩}^*
 	+
 	∫_{t}^{t+Δt} \frac{dJ}{dτ} dτ
 \right)
-{{< /katex >}}
+{{< /k >}}
 As
-{{< katex display >}}
+{{< k display >}}
 J_{⟨t,T⟩}^* = \min_{\bm{u}} \left( J_{⟨t,T⟩} \right)
-{{< /katex >}}
-the term {{< katex >}} J_{⟨t,T⟩} {{< /katex >}} cancels out with the left side of the equation
-{{< katex display >}}
+{{< /k >}}
+the term {{<k>}} J_{⟨t,T⟩} {{</k>}} cancels out with the left side of the equation
+{{< k display >}}
 0
 =
 \min_{\bm{u}} \left(
@@ -76,17 +76,17 @@ the term {{< katex >}} J_{⟨t,T⟩} {{< /katex >}} cancels out with the left si
     \frac{dJ}{dτ}
     \ dτ
 \right)
-{{< /katex >}}
+{{< /k >}}
 and we may perform the manipulation
-{{< katex display >}}
+{{< k display >}}
 \frac{dJ}{dτ}
 =
 \frac{∂J}{∂\bm{x}} \bm{f}
 +
 \frac{∂J}{∂τ}
-{{< /katex >}}
+{{< /k >}}
 Its substitution results in the equation
-{{< katex display >}}
+{{< k display >}}
 0
 =
 \min_{\bm{u}} \left(
@@ -94,12 +94,12 @@ Its substitution results in the equation
 L + \frac{∂J}{∂\bm{x}}\bm{f} + \frac{∂J}{∂τ}
 \ dτ
 \right)
-{{< /katex >}}
+{{< /k >}}
 
 ---
 
-If {{< katex >}} Δt→0 {{< /katex >}}, we may approximate the integral with a Reimann sum and manipulate the resulting equation into the form of the *Bellman's differential equation*
-{{< katex display >}}
+If {{<k>}} Δt→0 {{</k>}}, we may approximate the integral with a Reimann sum and manipulate the resulting equation into the form of the *Bellman's differential equation*
+{{< k display >}}
 %\left.
 -\frac{∂J^*}{∂τ}
 %\right|_{τ=t}
@@ -112,5 +112,5 @@ If {{< katex >}} Δt→0 {{< /katex >}}, we may approximate the integral with a 
 	\bm{f}
 \right)
 %\right|_{τ=t}
-{{< /katex >}}
-evaluated at time {{< katex >}} τ = t {{< /katex >}} from which we may derive the Linear Quadratic Regulator and with modifications, Pontrjagin's minimum principle.
+{{< /k >}}
+evaluated at time {{<k>}} τ = t {{</k>}} from which we may derive the Linear Quadratic Regulator and with modifications, Pontrjagin's minimum principle.

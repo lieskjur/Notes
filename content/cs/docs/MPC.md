@@ -4,49 +4,49 @@ draft: false
 ---
 
 Pro diskrétní systémy ve tvaru
-{{< katex display >}}
+{{< k display >}}
 \begin{aligned}
 	\bm{x}_{k+1} &= \bm{A}\bm{x}_k + \bm{B}\bm{u}_k \\
 	\bm{y}_k &= \bm{C}\bm{x}_k
 \end{aligned}
-{{< /katex >}}
+{{< /k >}}
 existuje forma optimálního řízení, které využívá kvadratického kritéria
-{{< katex display >}}
+{{< k display >}}
 J_{i+1}
 =
 (\bm{y}_{i+1}-\bm{w}_{i+1})^T \bm{Q}_{i+1} (\bm{y}_{i+1}-\bm{w}_{i+1})
 +
 \bm{u}_i^T\bm{R}_i\bm{u}_i
-{{< /katex >}}
-kde {{< katex >}} \bm{w}_{i+1} {{< /katex >}} jsou žádané hodnoty výstupů na horizontu
-{{< katex display >}}
+{{< /k >}}
+kde {{<k>}} \bm{w}_{i+1} {{</k>}} jsou žádané hodnoty výstupů na horizontu
+{{< k display >}}
 i+1 = k+1,\dots,k+N
-{{< /katex >}}
-pro určení optimálního řízení {{< katex >}} \bm{u}^*_i {{< /katex >}}.
+{{< /k >}}
+pro určení optimálního řízení {{<k>}} \bm{u}^*_i {{</k>}}.
 
 ---
 
-Jednotlivé stavy systému {{< katex >}} \bm{x}_i {{< /katex >}} můžeme vyjádřit jako
-{{< katex display >}}
+Jednotlivé stavy systému {{<k>}} \bm{x}_i {{</k>}} můžeme vyjádřit jako
+{{< k display >}}
 \begin{aligned}
 	\bm{x}_{k+1} &= \bm{A}\bm{x}_k + \bm{B}\bm{u}_k \\
 	\bm{x}_{k+2} &= \bm{A}^2\bm{x}_k + \bm{A}\bm{B}\bm{u}_k + \bm{B}\bm{u}_{k+1}\\
 	\bm{x}_{k+n} &= \bm{A}^n\bm{x}_k + \sum_{j=1}^n \bm{A}^{n-j}\bm{B}\bm{u}_{k+j-1}
 \end{aligned}
-{{< /katex >}}
+{{< /k >}}
 přičemž jeho výstupy nabývají hodnot
-{{< katex display >}}
+{{< k display >}}
 \bm{y}_{k+n} = \bm{C}\bm{A}^n\bm{x}_k + \sum_{j=1}^n \bm{C}\bm{A}^{n-j}\bm{B}\bm{u}_{k+j}
-{{< /katex >}}
+{{< /k >}}
 
 ---
 
-Výstupy {{< katex >}} \bm{y}_i \,,\; i = k+1,\ldots,k+N {{< /katex >}} můžeme seřadit do vektoru
-{{< katex display >}}
+Výstupy {{<k>}} \bm{y}_i \,,\; i = k+1,\ldots,k+N {{</k>}} můžeme seřadit do vektoru
+{{< k display >}}
 \bm{Y} = \bm{f} + \bm{G}\bm{U}
-{{< /katex >}}
+{{< /k >}}
 kde
-{{< katex display >}}
+{{< k display >}}
 \bm{Y}
 =
 \begin{bmatrix}
@@ -79,16 +79,16 @@ kde
 	\vdots \\
 	\bm{u}_{k+N-1}
 \end{bmatrix}
-{{< /katex >}}
+{{< /k >}}
 
 ---
 
 Pro celý horizont můžeme utvořit kvadratické kritérium optimality
-{{< katex display >}}
+{{< k display >}}
 J = (\bm{W}-\bm{Y})^T \bm{Q} (\bm{W}-\bm{Y}) + \bm{U}^T\bm{R}\bm{U}
-{{< /katex >}}
-kde {{< katex >}} \bm{Q} {{< /katex >}} a {{< katex >}} \bm{R} {{< /katex >}} jsou váhové matice a {{< katex >}} \bm{W} {{< /katex >}} vektor žádaných výstupů
-{{< katex display >}}
+{{< /k >}}
+kde {{<k>}} \bm{Q} {{</k>}} a {{<k>}} \bm{R} {{</k>}} jsou váhové matice a {{<k>}} \bm{W} {{</k>}} vektor žádaných výstupů
+{{< k display >}}
 \bm{W}
 =
 \begin{bmatrix}
@@ -112,8 +112,8 @@ kde {{< katex >}} \bm{Q} {{< /katex >}} a {{< katex >}} \bm{R} {{< /katex >}} js
 	\vdots & \ddots & \\
 	\bm{0} & \dots & \bm{R}_{k+N-1}
 \end{bmatrix}
-{{< /katex >}}
-Po dozazení {{< katex >}} \bm{Y} = \bm{f} + \bm{G}\bm{U} {{< /katex >}} můžeme najít jeho minimum pomocí podmínky
-{{< katex display >}}
+{{< /k >}}
+Po dozazení {{<k>}} \bm{Y} = \bm{f} + \bm{G}\bm{U} {{</k>}} můžeme najít jeho minimum pomocí podmínky
+{{< k display >}}
 \frac{∂J}{∂\bm{U}} = \bm{0}
-{{< /katex >}}
+{{< /k >}}

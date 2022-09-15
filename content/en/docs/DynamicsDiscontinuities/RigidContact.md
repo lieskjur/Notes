@@ -5,7 +5,7 @@ weight: 11
 ---
 
 rigid contact in equations of motion can be inforced by a single quadratic equality constraint and two linear inequality constraint
-{{< katex display >}}
+{{< k display >}}
 \begin{aligned}
 	\bm{ϕ}(\bm{q})⋅\bm{f} &= 0
 	\\
@@ -13,71 +13,71 @@ rigid contact in equations of motion can be inforced by a single quadratic equal
 	\\
 	\bm{f} &≥ 0
 \end{aligned}
-{{< /katex >}}
+{{< /k >}}
 which can be written in the compact form of an LSP as
-{{< katex display >}}
+{{< k display >}}
 \operatornamewithlimits{find}_{\bm{f}} \ \text{s.t.}: 0 ≤ \bm{ϕ}(\bm{q}) ⟂ \bm{f} ≥ 0
-{{< /katex >}}
+{{< /k >}}
 
 ### Example
 Take a simple cart
 ![](cart.jpg)
 Its equations of motion can be written as
-{{< katex display >}}
+{{< k display >}}
 m\ddot{q} = u + f
-{{< /katex >}}
+{{< /k >}}
 suplemented by contact constraints
-{{< katex display >}}
+{{< k display >}}
 	fq = 0
 	\;,\quad 
 	q ≥ 0
 	\;,\quad 
 	f ≥ 0
-{{< /katex >}}
+{{< /k >}}
 written in the compact form of an LSP as
-{{< katex display >}}
+{{< k display >}}
 \operatornamewithlimits{find}_{f} \ \text{s.t.}: 0 ≤ q ⟂ f ≥ 0
-{{< /katex >}}
+{{< /k >}}
 
 ---
 
-By discretizing the EoM we can approximate {{< katex >}} q_{n+1} {{< /katex >}} using the semi-implicit Euler scheme
-{{< katex display >}}
+By discretizing the EoM we can approximate {{<k>}} q_{n+1} {{</k>}} using the semi-implicit Euler scheme
+{{< k display >}}
 \begin{aligned}
 q_{n+1} &≈ q_n + h \dot{q}_{n+1} \\
 \dot{q}_{n+1} &≈ \dot{q}_n + h \ddot{q}_n
 \end{aligned}
-{{< /katex >}}
+{{< /k >}}
 where
-{{< katex display >}}
+{{< k display >}}
 \ddot{q}_{n} = \frac{u_n+f_n}{m}
-{{< /katex >}}
+{{< /k >}}
 After consecutive substitutions we attain the approximation
-{{< katex display >}}
+{{< k display >}}
 q_{n+1}
 =
 q_n + h \dot{q}_n + \frac{h^2}{m} u_n + \frac{h^2}{m} f_n
-{{< /katex >}}
+{{< /k >}}
 for which we may formulate the LCP
-{{< katex display >}}
+{{< k display >}}
 \operatornamewithlimits{find}_{f} \ \text{s.t.}: 0 ≤ q_{n+1} ⟂ f_n ≥ 0
-{{< /katex >}}
+{{< /k >}}
 
 ---
 
 In line with the original definiton of the LCP we have
-{{< katex display >}}
+{{< k display >}}
 \bm{w} \coloneqq q_{n+1}
 \;,\quad 
 \bm{z} \coloneqq f	
-{{< /katex >}}
+{{< /k >}}
 and terms
-{{< katex display >}}
+{{< k display >}}
 \begin{aligned}
 	\bm{q} &\coloneqq q_n + h \dot{q}_n + \frac{h^2}{m} u_n \\
 	\bm{M} &\coloneqq \frac{h^2}{m}
 \end{aligned}
-{{< /katex >}}
+{{< /k >}}
 
 ---
 

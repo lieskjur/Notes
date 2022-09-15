@@ -4,7 +4,7 @@ draft: false
 ---
 
 Přestože Pontrjaginův princip minima byl odvozen nezávisle v sovětském svazu, je možné jej odvodit z *Bellmanovy diferenciální rovnice* [^1]
-{{< katex display >}}
+{{< k display >}}
 %\left.
 -\frac{∂J^*}{∂τ}
 %\right|_{τ=t}
@@ -17,20 +17,20 @@ Přestože Pontrjaginův princip minima byl odvozen nezávisle v sovětském sva
 	\bm{f}
 \right)
 %\right|_{τ=t}
-{{< /katex >}}
+{{< /k >}}
 Základem je zavedení Hamiltoniánu
-{{< katex display >}}
+{{< k display >}}
 H = -\frac{∂J^*}{∂τ}
-{{< /katex >}}
+{{< /k >}}
 a konjugovaného stavového vektoru
-{{< katex display >}}
+{{< k display >}}
 \bm{p} = \frac{∂J^*}{∂\bm{x}^T}
-{{< /katex >}}
+{{< /k >}}
 
 ---
 
 Bellmanovu diferenciální rovnici pak můžeme psát jako
-{{< katex display >}}
+{{< k display >}}
 %\left.
 H
 %\right|_{τ=t}
@@ -43,27 +43,27 @@ H
 	\bm{f}
 \right)
 %\right|_{τ=t}
-{{< /katex >}}
-kde {{< katex >}} H {{< /katex >}} je Hamiltonián při dosazení optimálního řízení {{< katex >}} \bm{u}_\text{opt} {{< /katex >}} které jej minimalizuje
-{{< katex display >}}
+{{< /k >}}
+kde {{<k>}} H {{</k>}} je Hamiltonián při dosazení optimálního řízení {{<k>}} \bm{u}_\text{opt} {{</k>}} které jej minimalizuje
+{{< k display >}}
 \bm{u}_\text{opt} = \argmin_{\bm{u}} H
-{{< /katex >}}
+{{< /k >}}
 
 ---
 
 Samotný Hamiltonián lze vyjádřit jako obsah závroky
-{{< katex display >}}
+{{< k display >}}
 H = L + \bm{p}^T	\bm{f}
-{{< /katex >}}
+{{< /k >}}
 a z něj odvodit stavové rovnice
-{{< katex display >}}
+{{< k display >}}
 \dot{\bm{x}} = \frac{∂H}{∂\bm{p}^T}
 \qquad 
 \dot{\bm{p}} = -\frac{∂H}{∂\bm{x}^T}
-{{< /katex >}}
-kde je využito že vektor {{< katex >}} \bm{p} {{< /katex >}} je stavový vektor (závislý pouze na {{< katex >}} τ {{< /katex >}}) a tedy platí
-{{< katex display >}}
+{{< /k >}}
+kde je využito že vektor {{<k>}} \bm{p} {{</k>}} je stavový vektor (závislý pouze na {{<k>}} τ {{</k>}}) a tedy platí
+{{< k display >}}
 \frac{d\bm{p}}{dτ} = \frac{∂\bm{p}}{∂τ} = \frac{∂^2J^*}{∂τ ∂\bm{x}^T} = -\frac{∂H}{∂\bm{x}^T}
-{{< /katex >}}
+{{< /k >}}
 
 [^1]: [Belmannův princip optimality]({{< ref "Bellman.md" >}})
