@@ -4,7 +4,6 @@ draft: false
 weight: 10
 ---
 
-
 Quadratic programming (QP) problems with non-strict inequality constraints
 {{< k display >}}
 \begin{aligned}
@@ -12,7 +11,7 @@ Quadratic programming (QP) problems with non-strict inequality constraints
 	\text{subject to:}& \quad \bm{A}\bm{x} \geq \bm{b}
 \end{aligned}
 {{< /k >}}
-where {{<k>}} \bm{Q} = \bm{Q}^T {{</k>}} can be converted to Linear complementarity problems (LCP) [^1]
+where {{<k>}} \bm{Q} = \bm{Q}^T {{</k>}} can be converted to Linear complementarity problems (LCPs) [^1]
 {{< k display >}}
 \operatornamewithlimits{find}_{\bm{z}} \ \text{s.t.}: \quad 0 \leq (\bm{q} + \bm{M}\bm{z}) \perp \bm{z} ≥ 0
 {{< /k >}}
@@ -51,7 +50,7 @@ From the last KKT condition we may express {{<k>}} \bm{x} {{</k>}} as
 {{< k display >}}
 \bm{x} = \bm{Q}^{-1} ( \bm{A}^T \bm{\lambda} - \bm{c})
 {{< /k >}}
-and substitute it into the first (and third) condition, resulting in
+and substitute it into the first (also the third) condition, resulting in
 {{< k display >}}
 \begin{aligned}
 \bm{b} - \bm{A} \bm{Q}^{-1} ( \bm{A}^T \bm{\lambda} - \bm{c}) ≤ 0
